@@ -156,32 +156,32 @@ import Foundation
 // // someFunctionTakesAClosure {
 // // }
 
-// let digitNames = [0:"cero ", 1:"uno ", 2:"dos ", 3:"tres ",
-//                 4:"cuatro ", 5:"cinco ", 6:"seis ",
-//                 7:"siete ",8:"ocho ", 9:"nueve "]
-// let numbers = [16, 58, 510, 2127,-17]
+let digitNames = [0:"cero ", 1:"uno ", 2:"dos ", 3:"tres ",
+                4:"cuatro ", 5:"cinco ", 6:"seis ",
+                7:"siete ",8:"ocho ", 9:"nueve "]
+let numbers = [16, 58, 510, 2127,-17]
 
-// let numberStrings = numbers.map {
-//     (number) -> String in
-//     var number = number 
-//     var output = ""
-//     let menos = "minus"
-//     if number < 0 {
-//         output = menos
-//         number *= -1
-//         repeat{
-//         output = digitNames[number%10]! + output
-//         number /= 10
-//     } while number > 0
-//     }else{
-//     repeat{
-//         output = digitNames[number%10]! + output
-//         number /= 10
-//     } while number > 0
-//     }
-//     return output
-// }
-// print(numberStrings)
+let numberStrings = numbers.map {
+    (number) -> String in
+    var number = number 
+    var output = ""
+    let menos = "minus"
+    if number < 0 {
+        output = menos
+        number *= -1
+        repeat{
+        output = digitNames[number%10]! + output
+        number /= 10
+    } while number > 0
+    }else{
+    repeat{
+        output = digitNames[number%10]! + output
+        number /= 10
+    } while number > 0
+    }
+    return output
+}
+print(numberStrings)
 
  // con numeros negativos
 
