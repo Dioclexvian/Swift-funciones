@@ -156,33 +156,88 @@ import Foundation
 // // someFunctionTakesAClosure {
 // // }
 
-let digitNames = [0:"cero ", 1:"uno ", 2:"dos ", 3:"tres ",
-                4:"cuatro ", 5:"cinco ", 6:"seis ",
-                7:"siete ",8:"ocho ", 9:"nueve "]
-let numbers = [16, 58, 510, 2127,-17]
+// let digitNames = [0:"cero ", 1:"uno ", 2:"dos ", 3:"tres ",
+//                 4:"cuatro ", 5:"cinco ", 6:"seis ",
+//                 7:"siete ",8:"ocho ", 9:"nueve "]
+// let numbers = [16, 58, 510, 2127,-17]
 
-let numberStrings = numbers.map {
-    (number) -> String in
-    var number = number 
-    var output = ""
-    let menos = "minus"
-    if number < 0 {
-        output = menos
-        number *= -1
-        repeat{
-        output = digitNames[number%10]! + output
-        number /= 10
-    } while number > 0
-    }else{
-    repeat{
-        output = digitNames[number%10]! + output
-        number /= 10
-    } while number > 0
-    }
-    return output
-}
-print(numberStrings)
+// let numberStrings = numbers.map {
+//     (number) -> String in
+//     var number = number 
+//     var output = ""
+//     let menos = "minus"
+//     if number < 0 {
+//         output = menos
+//         number *= -1
+//         repeat{
+//         output = digitNames[number%10]! + output
+//         number /= 10
+//     } while number > 0
+//     }else{
+//     repeat{
+//         output = digitNames[number%10]! + output
+//         number /= 10
+//     } while number > 0
+//     }
+//     return output
+// }
+// print(numberStrings)
 
  // con numeros negativos
 
 
+// ENUMERADOS
+
+
+enum someEnumeration{
+    // definicion del enumerado
+}
+
+enum compassPoint: String  {
+    case north
+    case south
+    case east
+    case west
+}
+
+var directionToGo = compassPoint.east
+directionToGo = .east
+
+switch directionToGo{
+case .north:
+        print("Hay que ir al norte")
+case .south:
+        print("Hay pingüinos en el sur")
+case .east:
+        print("Mordor se extiende hacia las tierras del este")
+case .west:
+        print("Cuidado con los bandidos")
+}
+
+//permite contar
+enum Planets: CaseIterable {
+    case mercury, venus, earth, mars, jupiter, saturn, uranus, neptune
+}
+let numberOfChoices = Planets.allCases.count
+
+for planet in Planets.allCases{
+    print(planet)
+}
+
+enum barCode{
+    case upc(Int, Int, Int, Int)
+    case qrCode(String)
+}
+
+var productBarCode = barCode.upc(8, 85909, 51226, 3)
+productBarCode = .qrCode("ASDASDSDASD")
+
+switch productBarCode {
+    case let .upc (numberSystem, manufacturer, prodcut, check):
+        print("UPC: \(numberSystem), \(manufacturer), \(prodcut), \(check)")
+    case let .qrCode(productCode):
+        print("QR: \(productCode)")
+}
+
+let northDirection = compassPoint.north.rawValue
+print (compassPoint.north.rawValue)
